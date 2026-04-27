@@ -15,7 +15,7 @@ SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
 -- Create Customers table
-CREATE OR REPLACE Customers (
+CREATE OR REPLACE TABLE Customers (
     customer_id int AUTO_INCREMENT,
     name varchar(145),
     email varchar(255),
@@ -24,7 +24,7 @@ CREATE OR REPLACE Customers (
 );
 
 -- Create Orders table
-CREATE OR REPLACE Orders (
+CREATE OR REPLACE TABLE Orders (
     order_id int AUTO_INCREMENT,
     created_date datetime,
     customer_id int,
@@ -35,7 +35,7 @@ CREATE OR REPLACE Orders (
 );
 
 -- Create Employees table
-CREATE OR REPLACE Employees (
+CREATE OR REPLACE TABLE Employees (
     employee_id int AUTO_INCREMENT,
     code smallint,
     name varchar(145),
@@ -44,16 +44,16 @@ CREATE OR REPLACE Employees (
 );
 
 -- Create Products table
-CREATE OR REPLACE Products (
-    products_id int AUTO_INCREMENT,
+CREATE OR REPLACE TABLE Products (
+    product_id int AUTO_INCREMENT,
     name varchar(145),
     price decimal(6,2),
     quantity_on_hand smallint,
-    PRIMARY KEY (products_id)
+    PRIMARY KEY (product_id)
 );
 
 -- Create Order_Items table
-CREATE OR REPLACE Order_Items (
+CREATE OR REPLACE TABLE Order_Items (
     order_items_id int AUTO_INCREMENT,
     order_id int,
     product_id int,
@@ -61,7 +61,7 @@ CREATE OR REPLACE Order_Items (
     sale_price decimal(6,2),
     PRIMARY KEY (order_items_id),
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (product_ud) REFERENCES Products(product_id)
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- turn on commits and foreign key checks
