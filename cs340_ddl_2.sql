@@ -38,9 +38,7 @@ VALUES
 ("Sherlock Holmes", "sholmes@bakerst.co.uk", "2026-04-15"),
 ("Matilda Wormwood", "mwormwood@library.com", "2026-04-20"),
 ("Harry Potter", "hpotter@hogwarts.ac.uk", "2026-04-25")
-
--- Insert test data into Orders table
-
+;
 
 -- Insert test data into Employees table
 INSERT INTO Employees (code, name, email)
@@ -55,6 +53,7 @@ VALUES
 (1008, "Kevin Hartly", "kevin.h@sugarselect.com"),
 (1009, "Lucia Rossi", "lucia.r@sugarselect.com"),
 (1010, "Sam Rivera", "sam.r@sugarselect.com")
+;
 
 -- Insert test data into Products table
 INSERT INTO Products (name, price, quantity_on_hand)
@@ -94,6 +93,47 @@ VALUES
 ("Passionfruit Hearts", 4.75, 60),
 ("Cinnamon Hot Rocks", 6, 130),
 ("Marshmallow Clouds", 8.5, 50)
+;
+
+-- Insert test data into Orders table
+INSERT INTO Orders (created_date, customer_id, employee_id)
+VALUES
+(
+    "2026-04-10", 
+    (SELECT customer_id FROM Customers WHERE name = "Jordan Smith"),
+    (SELECT employee_id FROM Employees WHERE code = 1003)
+),
+(
+    "2026-04-11",
+    (SELECT customer_id FROM Customers WHERE name = "Bruce Wayne"),
+    (SELECT employee_id FROM Employees WHERE code = 1009)
+),
+(
+    "2026-04-11",
+    (SELECT customer_id FROM Customers WHERE name = "Brianna Lee"),
+    (SELECT employee_id FROM Employees WHERE code = 1005)
+),
+(
+    "2026-04-12",
+    (SELECT customer_id FROM Customers WHERE name = "Tony Stark"),
+    (SELECT employee_id FROM Employees WHERE code = 1001)
+),
+(
+    "2026-04-12",
+    (SELECT customer_id FROM Customers WHERE name = "Monica Geller"),
+    (SELECT employee_id FROM Employees WHERE code = 1002)
+),
+(
+    "2026-04-13",
+    (SELECT customer_id FROM Customers WHERE name = "Ron Swanson"),
+    (SELECT employee_id FROM Employees WHERE code = 1004)
+),
+(
+    "2026-04-14",
+    (SELECT customer_id FROM Customers WHERE name = "Tyrion Lannister"),
+    (SELECT employee_id FROM Employees WHERE code = 1008)
+)
+;
 
 -- Insert test data into Order_Items table
 
