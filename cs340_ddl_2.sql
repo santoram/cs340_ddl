@@ -136,5 +136,40 @@ VALUES
 ;
 
 -- Insert test data into Order_Items table
+INSERT INTO Order_Items (order_id, product_id, quantity, sale_price)
+VALUES
+-- Order 1: Jordan Smith
+(1, (SELECT product_id FROM Products WHERE name = 'Signature Gummy Bears'), 1, 8.50),
+(1, (SELECT product_id FROM Products WHERE name = 'Sour Neon Worms'), 1, 7.25),
+(1, (SELECT product_id FROM Products WHERE name = 'Blue Raspberry Sour Belts'), 1, 6.50),
 
+-- Order 2: Bruce Wayne
+(2, (SELECT product_id FROM Products WHERE name = 'Gold Leaf Chocolate Bar'), 1, 25.00),
+(2, (SELECT product_id FROM Products WHERE name = 'Sugared Almonds (Gift Tin)'), 1, 22.00),
+(2, (SELECT product_id FROM Products WHERE name = 'Bourbon Vanilla Toffee (Box)'), 2, 36.00),
+(2, (SELECT product_id FROM Products WHERE name = 'Rose Petal Turkish Delight'), 1, 15.00),
 
+-- Order 3: Brianna Lee
+(3, (SELECT product_id FROM Products WHERE name = 'Peach Rings (Premium)'), 1, 8.00),
+(3, (SELECT product_id FROM Products WHERE name = 'Watermelon Slices (Gummy)'), 1, 7.50),
+(3, (SELECT product_id FROM Products WHERE name = 'Cinnamon Hot Rocks'), 1, 6.00),
+
+-- Order 4: Tony Stark
+(4, (SELECT product_id FROM Products WHERE name = 'Gold Leaf Chocolate Bar'), 2, 50.00),
+(4, (SELECT product_id FROM Products WHERE name = 'Sugared Almonds (Gift Tin)'), 2, 44.00),
+(4, (SELECT product_id FROM Products WHERE name = 'Champagne Infused Truffle'), 5, 27.50),
+
+-- Order 5: Monica Geller
+(5, (SELECT product_id FROM Products WHERE name = 'Artisan Dark Chocolate Truffle'), 2, 9.00),
+(5, (SELECT product_id FROM Products WHERE name = 'Marzipan Fruit Shapes'), 1, 12.00),
+(5, (SELECT product_id FROM Products WHERE name = 'Sea Salt Caramel Truffle'), 2, 9.00),
+
+-- Order 6: Ron Swanson
+(6, (SELECT product_id FROM Products WHERE name = 'Bourbon Vanilla Toffee (Box)'), 1, 18.00),
+(6, (SELECT product_id FROM Products WHERE name = 'Black Forest Cherry Bark'), 1, 13.00),
+(6, (SELECT product_id FROM Products WHERE name = 'Candied Ginger Strips'), 1, 10.50),
+
+-- Order 7: Tyrion Lannister
+(7, (SELECT product_id FROM Products WHERE name = 'Gold Leaf Chocolate Bar'), 3, 75.00),
+(7, (SELECT product_id FROM Products WHERE name = 'Champagne Infused Truffle'), 8, 44.00)
+;
